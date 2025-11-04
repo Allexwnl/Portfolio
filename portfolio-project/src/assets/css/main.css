@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+CU:wght@100..400&display=swap');
+
+
+body {
+  @apply bg-gray-200 m-0 h-full;
+}
+
+.--navbar {
+    @apply bg-white shadow-md p-6 flex flex-row justify-between items-center border-b-2 border-black;
+}
+
+h1 {
+    @apply text-[90px] font-bold;
+}
+
+h2 {
+    @apply text-3xl;
+}
+
+h3 {
+    @apply text-2xl;
+}
+
+h4 {
+    @apply text-xl;
+}
+
+h5 {
+    @apply text-lg;
+}
+
+h6 {
+    @apply text-base;
+}
+
+p {
+    @apply text-[25px];
+}
+
+button {
+    @apply font-[20px] p-4 border-black border-2 rounded-lg bg-white hover:bg-black hover:border-white hover:text-white transition duration-300 cursor-pointer w-[300px];
+}
+
+.--mainContainer {
+    @apply flex-row flex justify-around mt-8
+}
+
+.--textContainer {
+    @apply w-[800px];
+}
+
+.--imageContainer {
+    @apply w-[600px]
+}
+
+.--imageContainer img {
+    @apply rounded-3xl shadow-lg;
+}
+
+.--footer {
+    @apply bg-white flex flex-col items-center p-6 mt-12 border-t-2 border-black bottom-0;
+}
+
+.--footerContainer {
+    @apply flex flex-row justify-around w-full;
+}
+
+.--footer p {
+    @apply text-[20px];
+}
