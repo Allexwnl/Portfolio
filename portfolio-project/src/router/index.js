@@ -8,7 +8,7 @@ import DashBoard from '../views/DashBoard.vue';
 const routes = [
   { path: '/', component: HomePage },
   { path: '/admin', component: LoGin },
-  { path: '/dashboard', component: DashBoard },
+  { path: '/dashboard', component: DashBoard, meta: { requiresAuth: true } },
 ];
 
 const router = createRouter({
