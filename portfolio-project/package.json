@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@dataconnect/generated": "file:src/dataconnect-generated",
+    "@supabase/supabase-js": "^2.79.0",
     "firebase": "^12.5.0",
-    "vue": "^3.5.22"
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.16",
