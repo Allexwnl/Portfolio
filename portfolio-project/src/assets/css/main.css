@@ -38,6 +38,10 @@ p {
     @apply text-[25px];
 }
 
+input {
+    @apply bg-white border-[#00FF85] border-2 p-4 w-full rounded-[100px]
+}
+
 button {
     @apply font-[20px] p-4 bg-white border-[#00FF85] hover:bg-[#00FF85] hover:border-white border-2 rounded-lg hover:text-white transition duration-300 cursor-pointer w-[300px];
 }

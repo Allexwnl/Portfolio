@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+.--projectDetails {
+    @apply p-6 flex flex-row mx-auto mt-[150px] mb-20 gap-6;
+}
+
+.--projectInfo {
+    @apply flex flex-col gap-4 w-1/2;
+}
+
+.--imageCarousel {
+    @apply relative w-[800px] h-[400px] overflow-hidden;
+}
+
+.--carouselImage {
+    @apply w-[800px] h-auto rounded-2xl shadow-lg object-fill relative;
+}
+
+.carouselBtn {
+    @apply absolute top-1/2 w-[55px] -translate-y-1/2 bg-white text-[#c300ff] border-none text-3xl px-3 py-1.5 cursor-pointer rounded-md transition-colors duration-300;
+  }
+  
+  .carouselBtn.prev {
+    @apply left-4; /* ongeveer 15px */
+  }
+  
+  .carouselBtn.next {
+    @apply right-4; /* ongeveer 15px */
+  }
+  
