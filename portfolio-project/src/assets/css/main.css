@@ -46,8 +46,12 @@ button {
     @apply rounded-[50px];
 }
 
+.--lightDarkBtn {
+    @apply relative w-[100px] h-10 rounded-full flex items-center transition-all duration-500
+}
+
 .--mainContainer {
-    @apply flex-row flex justify-around pt-[150px]
+    @apply flex-row flex-wrap max-[1415px]:gap-10 flex justify-around pt-[150px]
 }
 
 .--textContainer {
@@ -76,11 +80,15 @@ button {
 
 /* dark mode overrides */
 .dark body {
-    @apply bg-gray-900 text-white;
+    @apply bg-gray-950 text-white;
 }
 
 .dark button {
     @apply bg-gray-800 text-white border-[#00FF85] hover:bg-[#00FF85] hover:text-black hover:border-black;
+}
+
+.dark .--projectCardBtn {
+    @apply bg-gray-800
 }
 
 .dark .--footer {

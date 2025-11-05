@@ -20,7 +20,7 @@ import ProJects from '../components/ProJects.vue';
                 <button>Contact</button>
             </div>
         </div>
-        <div class="--imageContainer">
+        <div class="--imageContainer hover:scale-110 transition-all duration-500">
             <img src="../img/Ik.png" alt="">
         </div>
     </div>

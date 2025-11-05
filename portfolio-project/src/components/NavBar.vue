@@ -10,9 +10,26 @@
       <li>contact</li>
     </ul>
     <ul class="flex flex-row gap-8">
-      <li @click="toggleTheme" class="cursor-pointer select-none hover:opacity-60">
-        {{ isDark ? "Light Mode" : "Dark Mode" }}
-      </li> <a v-if="user" @click="logout" class="cursor-pointer hover:text-red-500">
+      <button @click="toggleTheme" class="--lightDarkBtn"
+        :class="isDark ? 'bg-gradient-to-r from-gray-800 to-blue-900' : 'bg-gradient-to-r from-sky-300 to-sky-500'">
+        <!-- Zon / Maan icoon -->
+        <div
+          class="absolute w-8 h-8 rounded-full bg-white shadow-md transform transition-all duration-500 flex items-center justify-center"
+          :class="isDark ? 'translate-x-9 bg-yellow-100' : ' bg-yellow-400'">
+          <svg v-if="!isDark" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+            class="w-5 h-5 text-yellow-600">
+            <path
+              d="M12 4.75a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 12 4.75zM12 19.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 12 19.25zM4.75 12a.75.75 0 0 1-.75-.75v-.5a.75.75 0 0 1 1.5 0v.5A.75.75 0 0 1 4.75 12zM19.25 12a.75.75 0 0 1-.75-.75v-.5a.75.75 0 0 1 1.5 0v.5A.75.75 0 0 1 19.25 12zM6.47 6.47a.75.75 0 0 1 1.06 0l.35.35a.75.75 0 1 1-1.06 1.06l-.35-.35a.75.75 0 0 1 0-1.06zM16.12 16.12a.75.75 0 0 1 1.06 0l.35.35a.75.75 0 1 1-1.06 1.06l-.35-.35a.75.75 0 0 1 0-1.06zM6.47 17.53a.75.75 0 0 1 1.06 0l.35.35a.75.75 0 0 1-1.06 1.06l-.35-.35a.75.75 0 0 1 0-1.06zM16.12 7.88a.75.75 0 0 1 1.06 0l.35.35a.75.75 0 1 1-1.06 1.06l-.35-.35a.75.75 0 0 1 0-1.06z" />
+          </svg>
+
+          <svg v-else xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+            class="w-8 h-8 text-gray-700">
+            <path
+              d="M21.752 15.002A9.72 9.72 0 0 1 12 21.75a9.75 9.75 0 0 1 0-19.5c.682 0 1.35.07 1.996.204a9.001 9.001 0 1 0 7.756 12.548z" />
+          </svg>
+        </div>
+      </button>
+      <a v-if="user" @click="logout" class="cursor-pointer hover:text-red-500">
         Logout
       </a>
     </ul>
