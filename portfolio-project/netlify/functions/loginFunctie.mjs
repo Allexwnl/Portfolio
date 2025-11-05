@@ -2,10 +2,10 @@ import { createClient } from '@supabase/supabase-js';
 
 export const handler = async (event, context) => {
   try {
-    const SUPABASE_URL = process.env.SUPABASE_URL;
-    const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    const SUPABASE_EMAIL = process.env.SUPABASE_EMAIL;
-    const SUPABASE_PASSWORD = process.env.SUPABASE_PASSWORD;
+    const SUPABASE_URL = process.SUPABASE_URL;
+    const SUPABASE_KEY = process.SUPABASE_SERVICE_ROLE_KEY;
+    const SUPABASE_EMAIL = process.SUPABASE_EMAIL;
+    const SUPABASE_PASSWORD = process.SUPABASE_PASSWORD;
 
     if (!SUPABASE_URL || !SUPABASE_KEY || !SUPABASE_EMAIL || !SUPABASE_PASSWORD) {
       console.error("❌ Ontbrekende environment variabelen");
