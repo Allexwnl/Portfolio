@@ -1,37 +1,38 @@
 <template>
     <NavBar />
-    <MobileNavbar />
-    <div class="dashboard">
+    <div class="dashboard flex flex-col items-center justify-center pt-[150px]">
         <h1 class="dashboardTitle">Project Dashboard</h1>
 
-        <section class="addProjectContainer">
-            <h2 class="sectionTitle">Nieuw Project</h2>
+        <section class="--newProjectContainer">
+            <h2 class="sectionTitle text-black">Nieuw Project</h2>
 
-            <input v-model="title" placeholder="Titel" class="inputField" />
-            <textarea v-model="description" placeholder="Beschrijving" class="inputField"></textarea>
+            <input v-model="title" placeholder="Titel" class="inputField bg-white border-[#00FF85] border-2 p-4 w-full rounded-[100px]" />
+            <textarea v-model="description" placeholder="Beschrijving" class="inputField w-[350px] h-[300px] border-[#00FF85] border-2 p-4 rounded-[10px]"></textarea>
 
-            <input type="file" multiple @change="handleFiles" class="inputFile" />
+            <input type="file" multiple @change="handleFiles" class="inputFile border-[#00FF85] border-2 p-4 rounded-[10px] text-black hover:bg-[#00FF85] hover:cursor-pointer" />
 
             <button @click="addProject" class="addButton">
                 Voeg project toe
             </button>
         </section>
-
-        <section class="projectsContainer">
-            <div v-for="project in projects" :key="project.id" class="dashboardProjectCard">
-                <h2 class="projectTitle">{{ project.title }}</h2>
-                <p class="projectDescription">{{ project.description }}</p>
-
-                <div v-if="project.images.length" class="imageCarousel">
-                    <img :src="project.images[project.currentImage]" class="carouselImage" />
-
-                    <button @click="prevImage(project)" class="carouselBtn prev">‹</button>
-                    <button @click="nextImage(project)" class="carouselBtn next">›</button>
+        <section class="flex flex-row flex-wrap justify-center items-center gap-10">
+            <div v-for="(project, index) in projects" :key="project.id" class="--projectCard"
+                :class="{ 'visible': project.visible }" :style="{ '--index': index }">
+                <div class="w-full h-full rounded-[100px] flex justify-center mt-[50px] overflow-hidden">
+                    <img :src="project.images[project.currentImage]" class="--projectCardImg"
+                        alt="Project afbeelding" />
                 </div>
-
-                <button @click="deleteProject(project.id, project.images)" class="deleteButton">
-                    Verwijder project
-                </button>
+                <div class="--projectCardInfo">
+                    <div class="--projectCardInfoContainer">
+                        <h3 class="--projectTitle">{{ project.title }}</h3>
+                        <div class="w-full flex justify-center">
+                            <button @click="deleteProject(project.id, project.images)"
+                                class="deleteButton mb-6 w-full --projectCardBtn">
+                                Verwijder project
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -184,5 +185,4 @@ onMounted(() => {
     height: 100%;
     object-fit: cover;
 }
-
 </style>

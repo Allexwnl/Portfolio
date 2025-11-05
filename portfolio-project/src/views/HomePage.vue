@@ -24,7 +24,9 @@ import ProJects from '../components/ProJects.vue';
             <img src="../img/Ik.png" alt="">
         </div>
     </div>
+    <h2 class="flex justify-center text-2xl mt-[250px]">Bekijk mijn projecten</h2>
     <section id="projects" class="--projectsSection">
+
         <ProJects />
 
     </section>

@@ -3,11 +3,11 @@
 
 
 body {
-  @apply bg-gray-200 m-0 h-full;
+    @apply bg-gray-300 m-0 h-full;
 }
 
 .--navbar {
-    @apply bg-white shadow-md p-6 flex flex-row justify-between items-center border-b-2 border-black;
+    @apply fixed top-0 w-full backdrop-blur-[8px] shadow-md p-6 flex flex-row justify-between items-center border-b-3 border-[#00FF85] z-100;
 }
 
 h1 {
@@ -15,7 +15,7 @@ h1 {
 }
 
 h2 {
-    @apply text-3xl;
+    @apply text-[50px];
 }
 
 h3 {
@@ -39,11 +39,15 @@ p {
 }
 
 button {
-    @apply font-[20px] p-4 border-black border-2 rounded-lg bg-white hover:bg-black hover:border-white hover:text-white transition duration-300 cursor-pointer w-[300px];
+    @apply font-[20px] p-4 bg-white border-[#00FF85] hover:bg-[#00FF85] hover:border-white border-2 rounded-lg hover:text-white transition duration-300 cursor-pointer w-[300px];
+}
+
+.--projectCardBtn {
+    @apply rounded-[50px];
 }
 
 .--mainContainer {
-    @apply flex-row flex justify-around mt-8
+    @apply flex-row flex justify-around pt-[150px]
 }
 
 .--textContainer {
@@ -59,7 +63,7 @@ button {
 }
 
 .--footer {
-    @apply bg-white flex flex-col items-center p-6 mt-12 border-t-2 border-black bottom-0;
+    @apply bg-white flex flex-col items-center p-6 mt-12 border-t-2 border-[#00FF85] bottom-0;
 }
 
 .--footerContainer {
@@ -68,4 +72,17 @@ button {
 
 .--footer p {
     @apply text-[20px];
+}
+
+/* dark mode overrides */
+.dark body {
+    @apply bg-gray-900 text-white;
+}
+
+.dark button {
+    @apply bg-gray-800 text-white border-[#00FF85] hover:bg-[#00FF85] hover:text-black hover:border-black;
+}
+
+.dark .--footer {
+    @apply bg-gray-800;
 }
