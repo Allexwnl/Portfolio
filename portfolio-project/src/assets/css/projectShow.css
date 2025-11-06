@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .--projectDetails {
-    @apply p-6 flex flex-row mx-auto mt-[150px] mb-20 gap-6;
+    @apply p-6 flex flex-row flex-wrap mt-[150px] mb-20 gap-6 max-[1695px]:justify-center max-[1695px]:text-center;
 }
 
 .--projectInfo {
@@ -17,14 +17,14 @@
 }
 
 .carouselBtn {
-    @apply absolute top-1/2 w-[55px] -translate-y-1/2 bg-white text-[#c300ff] border-none text-3xl px-3 py-1.5 cursor-pointer rounded-md transition-colors duration-300;
+    @apply absolute top-1/2 w-[55px] -translate-y-1/2 bg-white text-[#00FF85] border-2  text-3xl px-3 py-1.5 cursor-pointer rounded-md transition-colors duration-300;
   }
   
   .carouselBtn.prev {
-    @apply left-4; /* ongeveer 15px */
+    @apply left-4;
   }
   
   .carouselBtn.next {
-    @apply right-4; /* ongeveer 15px */
+    @apply right-4;
   }
   

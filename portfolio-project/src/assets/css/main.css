@@ -38,24 +38,36 @@ p {
     @apply text-[25px];
 }
 
+label {
+    @apply text-black mt-2 flex justify-center;
+}
+
 input {
-    @apply bg-white border-[#00FF85] border-2 p-4 w-full rounded-[100px]
+    @apply text-black bg-white border-[#00FF85] border-2 p-4 w-full rounded-[100px];
+}
+
+textarea {
+    @apply text-black
 }
 
 button {
     @apply font-[20px] p-4 bg-white border-[#00FF85] hover:bg-[#00FF85] hover:border-white border-2 rounded-lg hover:text-white transition duration-300 cursor-pointer w-[300px];
 }
 
-.--projectCardBtn {
-    @apply rounded-[50px];
+.--fulscreenBtn {
+   @apply absolute top-3 right-3 w-[50px] bg-white group-hover:opacity-100 transition-opacity duration-30 text-black p-2
+}
+
+.--closeFullscreenBtn {
+    @apply absolute top-3 right-3 w-[50px] bg-white group-hover:opacity-100 transition-opacity duration-30 text-black p-2
 }
 
 .--lightDarkBtn {
-    @apply relative w-[100px] h-10 rounded-full flex items-center transition-all duration-500
+    @apply relative w-[100px] h-10 rounded-full flex items-center transition-all duration-500;
 }
 
 .--mainContainer {
-    @apply flex-row flex-wrap max-[1415px]:gap-10 flex justify-around pt-[150px]
+    @apply flex-row flex-wrap max-[1415px]:gap-10 flex justify-around pt-[150px];
 }
 
 .--textContainer {
@@ -89,10 +101,6 @@ button {
 
 .dark button {
     @apply bg-gray-800 text-white border-[#00FF85] hover:bg-[#00FF85] hover:text-black hover:border-black;
-}
-
-.dark .--projectCardBtn {
-    @apply bg-gray-800
 }
 
 .dark .--footer {
