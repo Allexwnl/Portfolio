@@ -3,6 +3,13 @@ import NavBar from '../components/NavBar.vue';
 import MobileNavbar from '../components/MobileNavbar.vue';
 import FooTer from '../components/FooTer.vue';
 import ProJects from '../components/ProJects.vue';
+
+const scrollToSection = (id) => {
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
 </script>
 
 <template>
@@ -18,11 +25,11 @@ import ProJects from '../components/ProJects.vue';
                 verdiepen.
             </p>
             <div class="mt-5 gap-8 flex flex-wrap max-[768px]:justify-center">
-                <button>Projecten</button>
-                <button>Contact</button>
+                <button @click="scrollToSection('projects')">Bekijk Projecten</button>
+                <button @click="scrollToSection('contact')">Contact</button>
             </div>
         </div>
-        <div class="--imageContainer hover:scale-110 transition-all duration-500">
+        <div class="--imageContainer min-[768px]:hover:scale-110 transition-all duration-500">
             <img src="../img/Ik.png" alt="">
         </div>
     </div>

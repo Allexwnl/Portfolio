@@ -66,9 +66,17 @@ button {
     @apply relative w-[100px] h-10 rounded-full flex items-center transition-all duration-500;
 }
 
+.--sunAndMoon {
+    @apply absolute w-8 h-8 rounded-full shadow-md transform transition-all duration-500 flex items-center justify-center
+}
+
 a {
     @apply hover:text-[#00FF85]
 } 
+
+.--dangerA {
+    @apply cursor-pointer hover:text-red-600
+}
 
 .--mainContainer {
     @apply flex-row flex-wrap max-[1415px]:gap-10 flex justify-around pt-[150px];
@@ -79,7 +87,7 @@ a {
 }
 
 .--imageContainer {
-    @apply w-[600px]
+    @apply w-[600px] flex justify-center items-center max-[500px]:w-[300px];
 }
 
 .--imageContainer img {

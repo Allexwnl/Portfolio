@@ -8,6 +8,14 @@
     @apply flex flex-col justify-between w-7 h-6 cursor-pointer bg-transparent border-none p-0 hover:bg-transparent;
 }
 
+.dark .--HamburgerBtn {
+    @apply bg-transparent hover:bg-transparent
+}
+
+.dark .--HamburgerBtn span {
+    @apply bg-white;
+}
+
 .--HamburgerBtn span {
     @apply bg-black;
 }

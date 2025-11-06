@@ -1,5 +1,5 @@
 <template>
-    <footer class="--footer">
+    <footer id="contact" class="--footer">
         <div class="--footerContainer">
             <div>
                 <h3>Alexander Zoet</h3>

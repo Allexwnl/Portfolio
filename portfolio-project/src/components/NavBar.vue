@@ -14,7 +14,7 @@
         :class="isDark ? 'bg-gradient-to-r from-gray-800 to-blue-900' : 'bg-gradient-to-r from-sky-300 to-sky-500'">
         <!-- Zon / Maan icoon -->
         <div
-          class="absolute w-8 h-8 rounded-full bg-white shadow-md transform transition-all duration-500 flex items-center justify-center"
+          class="--sunAndMoon"
           :class="isDark ? 'translate-x-9 bg-yellow-100' : ' bg-yellow-400'">
           <svg v-if="!isDark" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
             class="w-5 h-5 text-yellow-600">
@@ -29,7 +29,7 @@
           </svg>
         </div>
       </button>
-      <a v-if="user" @click="logout" class="cursor-pointer hover:text-red-500">
+      <a v-if="user" @click="logout" class="--dangerA">
         Logout
       </a>
     </ul>

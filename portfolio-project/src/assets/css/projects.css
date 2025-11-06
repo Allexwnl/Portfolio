@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .--projectsSection {
-    @apply p-6 flex flex-row flex-wrap w-full justify-center items-center mt-[40px] gap-[150px];
+    @apply p-6 flex flex-row flex-wrap w-full justify-center items-center mt-[40px] gap-[150px] scroll-mt-48;
 }
 
 .--projectCard {
