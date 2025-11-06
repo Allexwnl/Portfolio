@@ -7,11 +7,11 @@ body {
 }
 
 .--navbar {
-    @apply fixed top-0 w-full backdrop-blur-[8px] shadow-md p-6 flex flex-row justify-between items-center border-b-3 border-[#00FF85] z-100;
+    @apply max-[1695px]:hidden fixed top-0 w-full backdrop-blur-[8px] shadow-md p-6 flex flex-row justify-between items-center border-b-3 border-[#00FF85] z-100;
 }
 
 h1 {
-    @apply text-[90px] font-bold;
+    @apply text-[90px] font-bold max-[768px]:text-[40px] max-[768px]:text-center;
 }
 
 h2 {
@@ -35,7 +35,7 @@ h6 {
 }
 
 p {
-    @apply text-[25px];
+    @apply text-[25px] max-[768px]:text-[18px] max-[768px]:text-center;
 }
 
 label {
@@ -65,6 +65,10 @@ button {
 .--lightDarkBtn {
     @apply relative w-[100px] h-10 rounded-full flex items-center transition-all duration-500;
 }
+
+a {
+    @apply hover:text-[#00FF85]
+} 
 
 .--mainContainer {
     @apply flex-row flex-wrap max-[1415px]:gap-10 flex justify-around pt-[150px];

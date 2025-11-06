@@ -14,7 +14,7 @@
 }
 
 .--projectCardInfo {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col justify-end items-start;
+    @apply absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col justify-end items-start;
 }
 
 .--projectCardInfoContainer {
@@ -22,7 +22,7 @@
 }
 
 .--projectTitle {
-    @apply mb-4 text-black;
+    @apply mb-4 text-black text-center;
 }
 
 .dark .--projectCard {

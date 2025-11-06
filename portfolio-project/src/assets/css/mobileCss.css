@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.--mobileNavbar {
+    @apply hidden fixed top-0 left-0 w-full z-50 backdrop-blur-md shadow-md px-6 py-4 max-[1695px]:flex flex-col justify-between items-center border-b-3 border-[#00FF85];
+}
+
+.--HamburgerBtn {
+    @apply flex flex-col justify-between w-7 h-6 cursor-pointer bg-transparent border-none p-0 hover:bg-transparent;
+}
+
+.--HamburgerBtn span {
+    @apply bg-black;
+}
+
+.--hamburgerMenu {
+    @apply mt-4 flex flex-col gap-4 text-lg font-medium p-6 rounded-lg shadow-lg;
+}
+
+button {
+    @apply max-[768px]:w-[200px]
+}
