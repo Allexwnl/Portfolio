@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar.vue';
 import MobileNavbar from '../components/MobileNavbar.vue';
 import FooTer from '../components/FooTer.vue';
 import ProJects from '../components/ProJects.vue';
+import TechStack from '../components/TechStack.vue';
 
 const scrollToSection = (id) => {
     const el = document.getElementById(id)
@@ -48,6 +49,7 @@ const scrollToSection = (id) => {
             <img src="../img/Ik.png" alt="">
         </div>
     </div>
+    <TechStack />
     <h2 class="flex justify-center text-2xl mt-[250px] text-center">Bekijk mijn projecten</h2>
     <section id="projects" class="--projectsSection">
 
