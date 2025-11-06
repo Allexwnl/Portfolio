@@ -62,6 +62,20 @@ button {
     @apply absolute top-3 right-3 w-[50px] bg-white group-hover:opacity-100 transition-opacity duration-30 text-black p-2
 }
 
+.--popUpBtn {
+    @apply rounded-[100px] w-[250px] flex justify-center items-center bg-white border-[#00FF85] border-2 hover:bg-[#00FF85] hover:border-white hover:text-white
+    transition duration-300 ease-in-out p-2 text-black;
+}
+
+.--popUpBtn:hover .bx-arrow-down-right-stroke {
+    @apply -rotate-90 transition-transform duration-300 ease-in-out;
+}
+
+.--aBtn {
+    @apply rounded-[100px] w-[250px] flex justify-center items-center bg-white border-[#00FF85] border-2 hover:bg-[#00FF85] hover:border-white hover:text-white
+    transition duration-300 ease-in-out p-2 text-black gap-2;
+}
+
 .--lightDarkBtn {
     @apply relative w-[100px] h-10 rounded-full flex items-center transition-all duration-500;
 }
@@ -76,6 +90,14 @@ a {
 
 .--dangerA {
     @apply cursor-pointer hover:text-red-600
+}
+
+.--introductionContainer {
+    @apply pt-[150px] flex justify-center items-center flex-col
+}
+
+.--contactBtnsGroup {
+    @apply flex flex-row gap-6 mt-6 max-[500px]:flex-col max-[500px]:items-center
 }
 
 .--mainContainer {
@@ -113,6 +135,11 @@ a {
 
 .dark button {
     @apply bg-gray-800 text-white border-[#00FF85] hover:bg-[#00FF85] hover:text-black hover:border-black;
+}
+
+.dark .--popUpBtn,
+.dark .--aBtn {
+    @apply bg-gray-800 text-[#00FF85] hover:bg-[#00FF85] hover:text-black hover:border-black;
 }
 
 .dark .--footer {

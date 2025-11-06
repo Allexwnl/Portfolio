@@ -9,7 +9,6 @@
         <p class="projectDescription">{{ project.description }}</p>
       </div>
 
-      <!-- ✅ Carousel -->
       <div
         v-if="filteredImages.length"
         class="--imageCarousel relative group cursor-pointer"
@@ -23,11 +22,9 @@
           />
         </transition>
 
-        <!-- Vorige/volgende knoppen -->
         <button @click.stop="prevImage" class="carouselBtn prev">‹</button>
         <button @click.stop="nextImage" class="carouselBtn next">›</button>
 
-        <!-- 🔍 Fullscreen knop: verschijnt bij hover -->
         <button
           @click.stop="openFullscreen"
           class="--fulscreenBtn"
