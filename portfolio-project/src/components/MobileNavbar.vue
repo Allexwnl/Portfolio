@@ -7,7 +7,6 @@
                 </h3>
 
             </div>
-            <!-- Light/Dark Toggle -->
             <button @click="toggleTheme" class="--lightDarkBtn" :class="isDark
                 ? 'bg-gradient-to-r from-gray-800 to-blue-900'
                 : 'bg-gradient-to-r from-sky-300 to-sky-500'">
@@ -26,7 +25,6 @@
                     </svg>
                 </div>
             </button>
-            <!-- Hamburger Button (mobile) -->
             <button class="--HamburgerBtn" @click="toggleMenu">
                 <span class="text-black bg-black block h-1 rounded transition-all duration-300"
                     :class="{ 'rotate-45 translate-y-2': isMenuOpen }"></span>
@@ -36,12 +34,13 @@
                     :class="{ '-rotate-45 -translate-y-2': isMenuOpen }"></span>
             </button>
         </div>
-        <!-- Desktop menu (vanaf md) -->
         <transition name="slide-fade">
             <ul v-if="isMenuOpen" class="hidden md:flex flex-row justify-between w-full gap-4 text-lg font-medium p-6">
-                <li><a href="#projects" @click="closeMenu" class="hover:text-[#c300ff] transition-colors">Projects</a>
+                <li><a href="/#projects" @click="closeMenu" class="transition-colors">Over mij</a>
                 </li>
-                <li><a href="#contact" @click="closeMenu" class="hover:text-[#c300ff] transition-colors">Contact</a>
+                <li><a href="/#projects" @click="closeMenu" class="transition-colors">Projects</a>
+                </li>
+                <li><a href="/#contact" @click="closeMenu" class="transition-colors">Contact</a>
                 </li>
                 <li v-if="user"><a @click="logout"
                         class="cursor-pointer hover:text-red-500 transition-colors">Logout</a></li>
@@ -52,9 +51,9 @@
     <transition name="slide-side">
         <ul v-if="isMenuOpen"
             class="md:hidden fixed w-1/2 h-full flex flex-col gap-4 text-lg font-medium mt-[75px] backdrop-blur-sm border-r-2 border-[#00FF85] shadow-lg pl-6 z-50">
-            <li><a href="#aboutMe" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Over mij</a></li>
-            <li><a href="#projects" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Projects</a></li>
-            <li><a href="#contact" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Contact</a></li>
+            <li><a href="/#aboutMe" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Over mij</a></li>
+            <li><a href="/#projects" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Projects</a></li>
+            <li><a href="/#contact" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Contact</a></li>
             <li v-if="user"><a @click="logout" class="cursor-pointer hover:text-red-500 transition-colors">Logout</a>
             </li>
         </ul>

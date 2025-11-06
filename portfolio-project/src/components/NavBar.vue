@@ -6,9 +6,12 @@
       </li>
     </ul>
     <ul class="flex flex-row gap-8">
-      <li>Over mij</li>
-      <li>Projects</li>
-      <li>contact</li>
+      <li><a href="/#aboutMe" @click="closeMenu" class="transition-colors">Over mij</a>
+                </li>
+                <li><a href="/#projects" @click="closeMenu" class="transition-colors">Projects</a>
+                </li>
+                <li><a href="/#contact" @click="closeMenu" class="transition-colors">Contact</a>
+                </li>
     </ul>
     <ul class="flex flex-row gap-8">
       <button @click="toggleTheme" class="--lightDarkBtn"
