@@ -19,7 +19,7 @@ const scrollToSection = (id) => {
         <a href="https://aidenderksen.netlify.app/" class="--popUpBtn">Bekijk niewste project <i
                 class='bx bx-arrow-down-right-stroke'></i>
         </a>
-        <h2>Alexander Zoet Front-end developer</h2>
+        <h2 class="max-[768px]:text-[40px] text-center">Alexander Zoet Front-end developer</h2>
         <p><span class="font-bold">Design</span> meets <span class="font-bold">development</span>.</p>
         <div class="--contactBtnsGroup">
             <a href="mailto:alexanderzoet@gmail.com" class="--aBtn">Email mij<i class='bxr  bx-envelope'></i> </a>
@@ -30,7 +30,7 @@ const scrollToSection = (id) => {
     <div class="w-full flex justify-center items-center mt-[25%]">
         <h3>scroll down<i class='bxr bx-arrow-down-stroke animate-bounce'></i> </h3>
     </div>
-    <div class="--mainContainer">
+    <div class="--mainContainer" id="aboutMe">
         <div class="--textContainer">
             <h1>Alexander Zoet</h1>
             <p>Ik ben Alexander Zoet, een enthousiaste front-end developer die graag nieuwe technieken ontdekt. Mijn

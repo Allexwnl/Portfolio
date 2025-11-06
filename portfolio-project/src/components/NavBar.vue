@@ -6,6 +6,7 @@
       </li>
     </ul>
     <ul class="flex flex-row gap-8">
+      <li>Over mij</li>
       <li>Projects</li>
       <li>contact</li>
     </ul>

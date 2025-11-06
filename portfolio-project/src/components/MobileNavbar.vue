@@ -20,8 +20,9 @@
                     </svg>
                     <svg v-else xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
                         class="w-5 h-5 text-gray-700">
-                        <path
-                            d="M21.752 15.002A9.72 9.72 0 0 1 12 21.75a9.75 9.75 0 0 1 0-19.5c.682 0 1.35.07 1.996.204a9.001 9.001 0 1 0 7.756 12.548z" />
+                        #00FF85
+                        d="M21.752 15.002A9.72 9.72 0 0 1 12 21.75a9.75 9.75 0 0 1 0-19.5c.682 0 1.35.07 1.996.204a9.001
+                        9.001 0 1 0 7.756 12.548z" />
                     </svg>
                 </div>
             </button>
@@ -35,20 +36,29 @@
                     :class="{ '-rotate-45 -translate-y-2': isMenuOpen }"></span>
             </button>
         </div>
-        <!-- Mobile Menu -->
+        <!-- Desktop menu (vanaf md) -->
         <transition name="slide-fade">
-            <ul v-if="isMenuOpen"
-                class="mt-4 flex flex-row justify-between w-full gap-4 text-lg font-medium p-6">
+            <ul v-if="isMenuOpen" class="hidden md:flex flex-row justify-between w-full gap-4 text-lg font-medium p-6">
                 <li><a href="#projects" @click="closeMenu" class="hover:text-[#c300ff] transition-colors">Projects</a>
                 </li>
                 <li><a href="#contact" @click="closeMenu" class="hover:text-[#c300ff] transition-colors">Contact</a>
                 </li>
-                <li v-if="user">
-                    <a @click="logout" class="cursor-pointer hover:text-red-500 transition-colors">Logout</a>
-                </li>
+                <li v-if="user"><a @click="logout"
+                        class="cursor-pointer hover:text-red-500 transition-colors">Logout</a></li>
             </ul>
         </transition>
+
     </nav>
+    <transition name="slide-side">
+        <ul v-if="isMenuOpen"
+            class="md:hidden fixed w-1/2 h-full flex flex-col gap-4 text-lg font-medium mt-[75px] backdrop-blur-sm border-r-2 border-[#00FF85] shadow-lg pl-6 z-50">
+            <li><a href="#aboutMe" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Over mij</a></li>
+            <li><a href="#projects" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Projects</a></li>
+            <li><a href="#contact" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Contact</a></li>
+            <li v-if="user"><a @click="logout" class="cursor-pointer hover:text-red-500 transition-colors">Logout</a>
+            </li>
+        </ul>
+    </transition>
 </template>
 
 <script setup>
@@ -89,18 +99,43 @@ const apply = () => {
 </script>
 
 <style scoped>
+/* Desktop fade/slide */
 .slide-fade-enter-active,
 .slide-fade-leave-active {
     transition: all 0.3s ease;
 }
 
-.slide-fade-enter-from {
+.slide-fade-enter-from,
+.slide-fade-leave-to {
     opacity: 0;
     transform: translateY(-10px);
 }
 
-.slide-fade-leave-to {
-    opacity: 0;
-    transform: translateY(-10px);
+.slide-fade-enter-to,
+.slide-fade-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile slide from left */
+.slide-side-enter-active,
+.slide-side-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-side-enter-from {
+    transform: translateX(-100%);
+}
+
+.slide-side-enter-to {
+    transform: translateX(0);
+}
+
+.slide-side-leave-from {
+    transform: translateX(0);
+}
+
+.slide-side-leave-to {
+    transform: translateX(-100%);
 }
 </style>
