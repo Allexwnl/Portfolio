@@ -113,7 +113,7 @@ a {
 }
 
 .--footerContainer {
-    @apply flex flex-row justify-around w-full;
+    @apply flex flex-wrap flex-row justify-around items-center gap-6 w-full;
 }
 
 .--footer p {

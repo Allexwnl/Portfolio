@@ -4,6 +4,7 @@ import MobileNavbar from '../components/MobileNavbar.vue';
 import FooTer from '../components/FooTer.vue';
 import ProJects from '../components/ProJects.vue';
 import TechStack from '../components/TechStack.vue';
+import Top3Blogs from '../components/Top3Blogs.vue';
 
 const scrollToSection = (id) => {
     const el = document.getElementById(id)
@@ -50,6 +51,7 @@ const scrollToSection = (id) => {
         </div>
     </div>
     <TechStack />
+    <Top3Blogs />
     <h2 class="flex justify-center text-2xl mt-[250px] text-center">Bekijk mijn projecten</h2>
     <section id="projects" class="--projectsSection">
 

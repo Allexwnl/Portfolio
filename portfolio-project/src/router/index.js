@@ -4,13 +4,15 @@ import HomePage from '../views/HomePage.vue';
 import LoGin from '../views/LoGin.vue';
 import DashBoard from '../views/DashBoard.vue';
 import ProjectDetail from '../views/ProjectShow.vue';
+import Blog from '../views/BlOg.vue';
 
 
 const routes = [
   { path: '/', component: HomePage },
   { path: '/admin', component: LoGin },
   { path: '/dashboard', component: DashBoard, meta: { requiresAuth: true } },
-  { path: '/project/:id', component: ProjectDetail }
+  { path: '/project/:id', component: ProjectDetail },
+  { path: '/blogs', component: Blog },
 ];
 
 const router = createRouter({
