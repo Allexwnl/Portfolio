@@ -2,7 +2,7 @@
   <NavBar />
   <MobileNavbar />
   <div class="projectShow pt-[150px]">
-    <button class="backBtn" @click="$router.back()">← Terug</button>
+    <button class="--backBtn" @click="$router.back()">← Terug</button>
 
     <div v-if="project" class="--projectDetails">
       <div class="--projectInfo">

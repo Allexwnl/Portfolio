@@ -8,12 +8,24 @@
     @apply flex flex-col p-4 border-[#00FF85] border-10 rounded-lg bg-white;
 }
 
+.--blogImgContainer {
+    @apply w-full flex justify-center mb-4;
+}
+
 .--blogImg {
     @apply w-[200px] h-[200px] object-cover rounded-[100px] border-5 border-[#00FF85];
 }
 
+.--blogTagContainer {
+    @apply flex gap-2 mt-4 flex-wrap justify-start items-end;
+}
+
 .--blogTag {
-    @apply bg-[#00FF85] text-sm px-2 py-1 rounded-full
+    @apply bg-[#00FF85] text-sm px-2 py-1 rounded-full;
+}
+
+.--blogDate {
+    @apply text-gray-500 text-sm text-start mb-2 mt-2;
 }
 
 .dark .--blog {

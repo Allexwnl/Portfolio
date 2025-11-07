@@ -68,6 +68,10 @@ button {
     transition duration-300 ease-in-out p-2 text-black gap-2;
 }
 
+.--backBtn {
+    @apply w-[100px] ml-6 
+}
+
 .--lightDarkBtn {
     @apply relative w-[100px] h-10 rounded-full flex items-center transition-all duration-500;
 }

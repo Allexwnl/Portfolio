@@ -3,19 +3,19 @@
         <h2 class="text-center mb-4">Laatste Blogs</h2>
         <div class="--blogContainer">
             <div v-for="post in posts.slice(0, 3)" :key="post.id" class="--blog">
-                <div class="w-full flex justify-center mb-4">
+                <div class="--blogImgContainer">
                     <img v-if="post.front_image" :src="post.front_image" alt="Front Image"
                         class="--blogImg" />
                 </div>
 
-                <h3 class="">{{ post.title }}</h3>
-                <p class="text-sm text-gray-500 mb-2">
+                <h3>{{ post.title }}</h3>
+                <p class="--blogDate">
                     {{ formatDate(post.date_from) }} → {{ formatDate(post.date_to) }}
                 </p>
                 <router-link :to="`/blogs/${post.id}`" class="">
                     Lees meer →
                 </router-link>
-                <div class="flex gap-2 mt-4 flex-wrap">
+                <div class="--blogTagContainer">
                     <span v-for="(tag, i) in post.tags" :key="i" class="--blogTag">
                         #{{ tag }}
                     </span>
