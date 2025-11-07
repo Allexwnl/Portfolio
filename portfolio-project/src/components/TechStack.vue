@@ -18,6 +18,13 @@
                 <i class='--techStackIcons bxl  bx-canva'></i>
                 <i class='--techStackIcons bxl  bx-git'></i>
                 <i class='--techStackIcons bxl  bx-gitlab'></i>
+                <i class='--techStackIcons bxl  bx-netlify'></i>
+                <i class='--techStackIcons bxl  bx-laravel'></i>
+                <i class='--techStackIcons bxl  bx-php'></i>
+                <i class='--techStackIcons bxl  bx-openai'></i>
+                <i class='--techStackIcons bxl  bx-my-sql'></i>
+                <i class='--techStackIcons bxl  bx-visual-studio'></i>
+                <i class='--techStackIcons bxl  bx-supabase'></i>
             </div>
         </div>
     </section>

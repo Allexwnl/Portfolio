@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.--blogContainer {
+    @apply grid grid-rows-1 grid-cols-3 max-[1000px]:grid-cols-1 flex justify-between gap-4 ml-6 mr-6 rounded-lg;
+}
+
+.--blog {
+    @apply flex flex-col p-4 border-[#00FF85] border-10 rounded-lg bg-white;
+}
+
+.--blogImg {
+    @apply w-[200px] h-[200px] object-cover rounded-[100px] border-5 border-[#00FF85];
+}
+
+.--blogTag {
+    @apply bg-[#00FF85] text-sm px-2 py-1 rounded-full
+}
+
+.dark .--blog {
+    @apply bg-gray-900;
+}

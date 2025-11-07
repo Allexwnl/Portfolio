@@ -2,31 +2,40 @@
     <NavBar />
   
     <div class="dashboard flex flex-col items-center justify-center pt-[150px]">
-      <h2 class="dashboardTitle">Project Dashboard</h2>
+      <h2 class="dashboardTitle mb-10">Project Dashboard</h2>
   
-      <!-- Project toevoegen -->
-      <section class="--newProjectContainer">
-        <h3 class="sectionTitle text-black">Nieuw Project</h3>
+      <!-- 🎨 Nieuw Project -->
+      <section class="--newProjectContainer w-full max-w-2xl mb-20">
+        <h3 class="sectionTitle text-black mb-4">Nieuw Project</h3>
   
         <div class="w-full">
-          <label class="mt-2">Title</label>
-          <input v-model="projectTitle" placeholder="Titel" class="inputFiel" />
+          <label class="mt-2">Titel</label>
+          <input v-model="projectTitle" placeholder="Titel" class="inputField w-full" />
         </div>
   
-        <div class="w-full">
-          <label class="mt-2">Beschrijving</label>
-          <textarea v-model="projectDescription" placeholder="Beschrijving"
-            class="inputField w-[350px] h-[300px] border-[#00FF85] border-2 p-4 rounded-[10px]"></textarea>
+        <div class="w-full mt-4">
+          <label>Beschrijving (Markdown ondersteund)</label>
+          <textarea
+            v-model="projectDescription"
+            placeholder="Gebruik **Markdown** voor opmaak..."
+            class="inputField w-full h-[200px] border-[#00FF85] border-2 p-4 rounded-[10px] font-mono"
+          ></textarea>
         </div>
   
-        <div class="w-full">
-          <label class="mt-2">Front Image</label>
-          <input type="file" @change="handleProjectFrontImage" class="inputFile border p-2 rounded" />
+        <!-- Preview -->
+        <div v-if="projectDescription" class="mt-4 p-4 border rounded bg-gray-50">
+          <h4 class="font-semibold mb-2">Voorbeeld:</h4>
+          <div v-html="renderMarkdown(projectDescription)" class="prose"></div>
         </div>
   
-        <div class="w-full">
-          <label class="mt-2">Overige Afbeeldingen</label>
-          <input type="file" multiple @change="handleProjectFiles" class="inputFile border p-2 rounded mt-1" />
+        <div class="w-full mt-4">
+          <label>Front Image</label>
+          <input type="file" @change="handleProjectFrontImage" class="inputFile border p-2 rounded w-full" />
+        </div>
+  
+        <div class="w-full mt-4">
+          <label>Overige Afbeeldingen</label>
+          <input type="file" multiple @change="handleProjectFiles" class="inputFile border p-2 rounded w-full" />
         </div>
   
         <draggable v-model="projectFiles" class="flex flex-col gap-2 mt-2">
@@ -38,22 +47,22 @@
           </template>
         </draggable>
   
-        <div class="w-full">
-          <label class="mt-2">Link naam</label>
-          <input v-model="projectLinkName" placeholder="Link naam" class="inputField mt-2" />
+        <div class="w-full mt-4">
+          <label>Link naam</label>
+          <input v-model="projectLinkName" placeholder="Link naam" class="inputField w-full mt-2" />
         </div>
   
-        <div class="w-full">
-          <label class="mt-2">Link URL</label>
-          <input v-model="projectLinkUrl" placeholder="Link URL" class="inputField mt-2" />
+        <div class="w-full mt-4">
+          <label>Link URL</label>
+          <input v-model="projectLinkUrl" placeholder="Link URL" class="inputField w-full mt-2" />
         </div>
   
-        <button @click="addProject" class="addButton mt-4">
-          Voeg project toe
+        <button @click="addProject" class="addButton mt-6 bg-green-600 text-white px-6 py-2 rounded shadow">
+          Voeg Project Toe
         </button>
       </section>
   
-      <!-- Project weergave -->
+      <!-- 🧩 Projecten overzicht -->
       <section class="flex flex-row flex-wrap justify-center items-center gap-10 mt-10">
         <div v-for="(project, index) in projects" :key="project.id" class="--projectCard"
           :class="{ 'visible': project.visible }" :style="{ '--index': index }">
@@ -78,9 +87,8 @@
         </div>
       </section>
   
-      <!-- Blog toevoegen -->
-      <section class="--newProjectContainer mt-10 w-full max-w-2xl">
-        <h3 class="sectionTitle text-black">Nieuwe Blogpost</h3>
+      <section class="--newBlogContainer mt-20 w-full max-w-2xl">
+        <h3 class="sectionTitle text-black mb-4">Nieuwe Blogpost</h3>
   
         <form @submit.prevent="addBlog" class="flex flex-col gap-4">
           <div>
@@ -89,9 +97,19 @@
           </div>
   
           <div>
-            <label class="block font-semibold mb-1">Beschrijving</label>
-            <textarea v-model="blogDescription" class="w-full border rounded p-2" rows="3"
-              placeholder="Korte samenvatting..."></textarea>
+            <label class="block font-semibold mb-1">Beschrijving (Markdown ondersteund)</label>
+            <textarea
+              v-model="blogDescription"
+              class="w-full border rounded p-2 font-mono"
+              rows="10"
+              placeholder="Gebruik Markdown voor kopjes, lijsten, vetgedrukt, etc."
+            ></textarea>
+          </div>
+  
+          <!-- Preview -->
+          <div v-if="blogDescription" class="mt-4 p-4 border rounded bg-gray-50">
+            <h4 class="font-semibold mb-2">Voorbeeld:</h4>
+            <div v-html="renderMarkdown(blogDescription)" class="prose"></div>
           </div>
   
           <div class="flex gap-4">
@@ -108,22 +126,29 @@
           <div>
             <label class="block font-semibold mb-1">Tags</label>
             <div class="flex flex-wrap gap-2 mb-2">
-              <span v-for="(tag, i) in blogTags" :key="i"
-                class="bg-sky-200 text-sky-800 px-3 py-1 rounded-full text-sm flex items-center gap-2">
+              <span
+                v-for="(tag, i) in blogTags"
+                :key="i"
+                class="bg-sky-200 text-sky-800 px-3 py-1 rounded-full text-sm flex items-center gap-2"
+              >
                 {{ tag }}
                 <button type="button" @click="removeBlogTag(i)" class="text-red-500 font-bold">×</button>
               </span>
             </div>
             <div class="flex gap-2">
-              <input v-model="newBlogTag" @keyup.enter.prevent="addBlogTag" class="border rounded p-2 flex-1"
-                placeholder="Typ een tag en druk op Enter" />
+              <input
+                v-model="newBlogTag"
+                @keyup.enter.prevent="addBlogTag"
+                class="border rounded p-2 flex-1"
+                placeholder="Typ een tag en druk op Enter"
+              />
               <button type="button" @click="addBlogTag" class="bg-sky-500 text-white rounded px-4 py-2">+</button>
             </div>
           </div>
   
           <div>
             <label class="block font-semibold mb-1">Front Image</label>
-            <input type="file" @change="handleBlogFrontImage" class="border p-2 rounded" />
+            <input type="file" @change="handleBlogFrontImage" class="border p-2 rounded w-full" />
           </div>
   
           <button type="submit" class="bg-green-500 text-white px-6 py-2 rounded shadow">
@@ -139,10 +164,14 @@
   import { supabase } from '../supabase/supabase.js'
   import { ref, onMounted } from 'vue'
   import draggable from 'vuedraggable'
+  import { marked } from 'marked'
   
   // Cloudinary config
   const CLOUD_NAME = 'dlixm83gq'
   const UPLOAD_PRESET = 'projectImages'
+  
+  // Markdown renderer
+  const renderMarkdown = (text) => marked.parse(text || '')
   
   // Project data
   const projectTitle = ref('')
@@ -163,13 +192,13 @@
   const blogFrontImage = ref(null)
   
   // Handlers
-  const handleProjectFrontImage = (e) => { const file = e.target.files[0]; if(file) projectFrontImage.value = file }
+  const handleProjectFrontImage = (e) => { const file = e.target.files[0]; if (file) projectFrontImage.value = file }
   const handleProjectFiles = (e) => { projectFiles.value = Array.from(e.target.files) }
-  const handleBlogFrontImage = (e) => { const file = e.target.files[0]; if(file) blogFrontImage.value = file }
+  const handleBlogFrontImage = (e) => { const file = e.target.files[0]; if (file) blogFrontImage.value = file }
   
   // Tags
-  const addBlogTag = () => { if(newBlogTag.value.trim() && !blogTags.value.includes(newBlogTag.value.trim())) { blogTags.value.push(newBlogTag.value.trim()); newBlogTag.value = '' } }
-  const removeBlogTag = (i) => { blogTags.value.splice(i,1) }
+  const addBlogTag = () => { if (newBlogTag.value.trim() && !blogTags.value.includes(newBlogTag.value.trim())) { blogTags.value.push(newBlogTag.value.trim()); newBlogTag.value = '' } }
+  const removeBlogTag = (i) => { blogTags.value.splice(i, 1) }
   
   // Cloudinary upload
   const uploadToCloudinary = async (file) => {
@@ -181,36 +210,44 @@
     return data.secure_url
   }
   
-  // Projecten ophalen
+  // Fetch projecten
   const fetchProjects = async () => {
-    const { data, error } = await supabase.from('projects').select('*').order('id',{ ascending:false })
-    if(error) return console.error(error)
-    projects.value = data.map(p => ({ ...p, images:p.images||[], links:p.links||[] }))
+    const { data, error } = await supabase.from('projects').select('*').order('id', { ascending: false })
+    if (error) return console.error(error)
+    projects.value = data.map(p => ({ ...p, images: p.images || [], links: p.links || [] }))
   }
   
-  // Project toevoegen
+  // Add Project
   const addProject = async () => {
-    if(!projectTitle.value) return alert('Titel is verplicht')
+    if (!projectTitle.value) return alert('Titel is verplicht')
     let frontUrl = ''
-    if(projectFrontImage.value instanceof File) frontUrl = await uploadToCloudinary(projectFrontImage.value)
+    if (projectFrontImage.value instanceof File) frontUrl = await uploadToCloudinary(projectFrontImage.value)
     const uploadedUrls = []
-    for(const file of projectFiles.value) if(file instanceof File) uploadedUrls.push(await uploadToCloudinary(file))
-    const allImages = frontUrl ? [frontUrl,...uploadedUrls] : uploadedUrls
+    for (const file of projectFiles.value) if (file instanceof File) uploadedUrls.push(await uploadToCloudinary(file))
+    const allImages = frontUrl ? [frontUrl, ...uploadedUrls] : uploadedUrls
     const projectLinks = []
-    if(projectLinkName.value && projectLinkUrl.value) projectLinks.push({ name:projectLinkName.value, url:projectLinkUrl.value })
-    const { data, error } = await supabase.from('projects').insert([{ title:projectTitle.value, description:projectDescription.value, images:allImages, links:projectLinks }]).select()
-    if(error) return console.error(error)
+    if (projectLinkName.value && projectLinkUrl.value) projectLinks.push({ name: projectLinkName.value, url: projectLinkUrl.value })
+  
+    const { error } = await supabase.from('projects').insert([{
+      title: projectTitle.value,
+      description: projectDescription.value,
+      images: allImages,
+      links: projectLinks
+    }])
+  
+    if (error) return console.error(error)
     alert('Project toegevoegd!')
-    projectTitle.value = projectDescription.value = ''; projectFrontImage.value=null; projectFiles.value=[]; projectLinkName.value=''; projectLinkUrl.value=''
+    projectTitle.value = projectDescription.value = ''; projectFrontImage.value = null; projectFiles.value = []; projectLinkName.value = ''; projectLinkUrl.value = ''
     fetchProjects()
   }
   
-  // Blog toevoegen
+  // Add Blog
   const addBlog = async () => {
-    if(!blogTitle.value) return alert('Titel is verplicht')
+    if (!blogTitle.value) return alert('Titel is verplicht')
     let frontUrl = ''
-    if(blogFrontImage.value instanceof File) frontUrl = await uploadToCloudinary(blogFrontImage.value)
-    const { data, error } = await supabase.from('Blog').insert([{
+    if (blogFrontImage.value instanceof File) frontUrl = await uploadToCloudinary(blogFrontImage.value)
+  
+    const { error } = await supabase.from('Blog').insert([{
       title: blogTitle.value,
       description: blogDescription.value,
       date_from: blogDateFrom.value,
@@ -218,18 +255,19 @@
       tags: blogTags.value,
       front_image: frontUrl
     }])
-    if(error) return console.error(error)
+  
+    if (error) return console.error(error)
     alert('Blog toegevoegd!')
-    blogTitle.value = blogDescription.value = ''; blogDateFrom.value=''; blogDateTo.value=''; blogTags.value=[]; blogFrontImage.value=null
+    blogTitle.value = blogDescription.value = ''; blogDateFrom.value = ''; blogDateTo.value = ''; blogTags.value = []; blogFrontImage.value = null
   }
   
-  // Project verwijderen
-  const deleteProject = async (projectId) => {
-    const { error } = await supabase.from('projects').delete().eq('id',projectId)
-    if(error) console.error(error)
+  // Delete project
+  const deleteProject = async (id) => {
+    const { error } = await supabase.from('projects').delete().eq('id', id)
+    if (error) console.error(error)
     fetchProjects()
   }
   
-  onMounted(()=>fetchProjects())
+  onMounted(() => fetchProjects())
   </script>
   
