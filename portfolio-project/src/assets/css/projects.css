@@ -22,7 +22,11 @@
 }
 
 .--projectTitle {
-    @apply mb-4 text-black text-center;
+    @apply mb-4 text-start;
+}
+
+.--projectDescription {
+    @apply mb-6 text-start;
 }
 
 .dark .--projectCard {

@@ -1,7 +1,7 @@
 <template>
   <NavBar />
   <MobileNavbar />
-  <div class="projectShow pt-[150px]">
+  <div class="projectShow max-[768px]:hidden pt-[150px]">
     <button class="--backBtn" @click="$router.back()">← Terug</button>
 
     <div v-if="project" class="--projectDetails">
@@ -10,27 +10,16 @@
         <p class="projectDescription">{{ project.description }}</p>
       </div>
 
-      <div
-        v-if="filteredImages.length"
-        class="--imageCarousel relative group cursor-pointer"
-      >
+      <div v-if="filteredImages.length" class="--imageCarousel relative group cursor-pointer">
         <transition name="fade" mode="out-in">
-          <img
-            :key="filteredImages[currentImage]"
-            :src="filteredImages[currentImage]"
-            class="--carouselImage w-full h-full object-cover object-center rounded-[10px]"
-            alt="Project afbeelding"
-          />
+          <img :key="filteredImages[currentImage]" :src="filteredImages[currentImage]"
+            class="--carouselImage w-full h-full object-cover object-center rounded-[10px]" alt="Project afbeelding" />
         </transition>
 
         <button @click.stop="prevImage" class="carouselBtn prev">‹</button>
         <button @click.stop="nextImage" class="carouselBtn next">›</button>
 
-        <button
-          @click.stop="openFullscreen"
-          class="--fulscreenBtn"
-          title="Bekijk fullscreen"
-        >
+        <button @click.stop="openFullscreen" class="--fulscreenBtn" title="Bekijk fullscreen">
           ⤢
         </button>
       </div>
@@ -40,45 +29,42 @@
   </div>
 
   <transition name="fade">
-    <div
-      v-if="isFullscreen"
-      class="fixed inset-0 bg-black/90 flex items-center justify-center z-100"
-    >
-      <!-- Afbeelding -->
-      <img
-        :src="filteredImages[currentImage]"
-        class="max-w-[90%] max-h-[90%] object-contain rounded-lg"
-        alt="Fullscreen afbeelding"
-      />
+    <div v-if="isFullscreen" class="fixed inset-0 bg-black/90 flex items-center justify-center z-100">
+      <img :src="filteredImages[currentImage]" class="max-w-[90%] max-h-[90%] object-contain rounded-lg"
+        alt="Fullscreen afbeelding" />
 
-      <!-- ✕ Sluiten -->
-      <button
-        @click="closeFullscreen"
-        class="--closeFullscreenBtn"
-      >
+      <button @click="closeFullscreen" class="--closeFullscreenBtn">
         ✕
       </button>
 
-      <!-- ◀ Prev -->
-      <button
-        @click="prevImage"
-        class="carouselBtn prev"
-        title="Vorige afbeelding"
-      >
+      <button @click="prevImage" class="carouselBtn prev" title="Vorige afbeelding">
         ‹
       </button>
 
-      <!-- ▶ Next -->
-      <button
-        @click="nextImage"
-        class="carouselBtn next"
-        title="Volgende afbeelding"
-      >
+      <button @click="nextImage" class="carouselBtn next" title="Volgende afbeelding">
         ›
       </button>
     </div>
   </transition>
+  <button class="--backBtn mt-[150px]" @click="$router.back()">← Terug</button>
+  <div class="projectShow max-[768px]:flex hidden pt-[150px]">
 
+    <div v-if="project" class="--projectDetails">
+      <div class="--projectInfo">
+        <h1 class="--projectTitle">{{ project.title }}</h1>
+        <p class="--projectDescription">{{ project.description }}</p>
+      </div>
+      <h3>Afbeeldingen<i class='bxr bx-arrow-down-stroke animate-bounce'></i> </h3>
+      <div v-if="filteredImages.length" class="space-y-6 mt-10">
+        <div v-for="(img, i) in filteredImages" :key="img" class="w-full">
+          <img :src="img" class="w-full h-[300px] rounded-[10px] object-cover cursor-pointer" alt="project afbeelding"
+            @click="; currentImage = i; isFullscreen = true" />
+        </div>
+      </div>
+    </div>
+
+    <p v-else>Laden...</p>
+  </div>
   <FooTer />
 </template>
 
@@ -167,6 +153,7 @@ const closeFullscreen = () => {
 .fade-leave-active {
   transition: opacity 0.4s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
