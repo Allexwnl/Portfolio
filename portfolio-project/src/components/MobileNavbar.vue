@@ -36,11 +36,14 @@
         </div>
         <transition name="slide-fade">
             <ul v-if="isMenuOpen" class="hidden md:flex flex-row justify-between w-full gap-4 text-lg font-medium p-6">
-                <li><a href="/#projects" @click="closeMenu" class="transition-colors">Over mij</a>
+                <li><a @click.prevent="closeMenu, scrollToSection('aboutMe')"
+                        class="transition-colors hover:text-[#00FF85] hover:cursor-pointer">Over mij</a>
                 </li>
-                <li><a href="/#projects" @click="closeMenu" class="transition-colors">Projects</a>
+                <li><a @click.prevent="closeMenu, scrollToSection('projects')"
+                        class="transition-colors hover:cursor-pointer">Projects</a>
                 </li>
-                <li><a href="/#contact" @click="closeMenu" class="transition-colors">Contact</a>
+                <li><a @click.prevent="closeMenu, scrollToSection('contact')"
+                        class="transition-colors hover:cursor-pointer">Contact</a>
                 </li>
                 <li v-if="user"><a @click="logout"
                         class="cursor-pointer hover:text-red-500 transition-colors">Logout</a></li>
@@ -50,10 +53,15 @@
     </nav>
     <transition name="slide-side">
         <ul v-if="isMenuOpen"
-            class="md:hidden fixed w-1/2 h-full flex flex-col gap-4 text-lg font-medium mt-[99px] backdrop-blur-sm border-r-2 border-[#00FF85] shadow-lg pl-6">
-            <li><a href="/#aboutMe" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Over mij</a></li>
-            <li><a href="/#projects" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Projects</a></li>
-            <li><a href="/#contact" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Contact</a></li>
+            class="md:hidden fixed z-30 w-1/2 h-full flex flex-col gap-4 text-lg font-medium mt-[99px] backdrop-blur-sm border-r-2 border-[#00FF85] shadow-lg pl-6">
+            <li> <a @click="() => { closeMenu(); scrollToSection('aboutMe'); }"
+                    class="transition-colors hover:text-[#00FF85] hover:cursor-pointer">
+                    Over mij
+                </a></li>
+            <li><a @click="() => { closeMenu(); scrollToSection('projects'); }"
+                    class="transition-colors hover:text-[#00FF85] hover:cursor-pointer">Projects</a></li>
+            <li><a @click="() => { closeMenu(); scrollToSection('contact'); }"
+                    class="transition-colors hover:text-[#00FF85] hover:cursor-pointer">Contact</a></li>
             <li v-if="user"><a @click="logout" class="cursor-pointer hover:text-red-500 transition-colors">Logout</a>
             </li>
         </ul>
@@ -94,6 +102,13 @@ const toggleTheme = () => {
 const apply = () => {
     if (isDark.value) document.documentElement.classList.add("dark")
     else document.documentElement.classList.remove("dark")
+}
+
+const scrollToSection = (id) => {
+    const el = document.getElementById(id)
+    if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
 }
 </script>
 

@@ -21,8 +21,16 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior() {
-    // Altijd naar boven scrollen bij navigatie
+  scrollBehavior(to, from, savedPosition) {
+    // Als er een hash in de URL staat, scroll daar naartoe
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth' // optioneel voor vloeiend scrollen
+      }
+    }
+    
+    // Anders altijd naar boven
     return { top: 0 }
   }
 })

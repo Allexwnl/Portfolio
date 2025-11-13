@@ -76,4 +76,11 @@ const apply = () => {
   if (isDark.value) document.documentElement.classList.add("dark")
   else document.documentElement.classList.remove("dark")
 }
+
+const scrollToSection = (id) => {
+    const el = document.getElementById(id)
+    if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+}
 </script>
