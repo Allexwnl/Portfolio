@@ -5,7 +5,7 @@
 }
 
 .--projectInfo {
-  @apply flex flex-col gap-4 rounded-lg p-2 w-1/2;
+  @apply flex flex-col gap-4 rounded-lg p-2 min-[768px]:w-1/2;
 }
 
 .dark .--projectInfo {
