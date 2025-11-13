@@ -53,7 +53,7 @@
     </nav>
     <transition name="slide-side">
         <ul v-if="isMenuOpen"
-            class="md:hidden fixed z-30 w-1/2 h-full flex flex-col gap-4 text-lg font-medium mt-[99px] backdrop-blur-sm border-r-2 border-[#00FF85] shadow-lg pl-6">
+            class="md:hidden fixed z-30 w-1/2 h-full flex flex-col gap-4 text-lg font-medium mt-[73px] backdrop-blur-sm border-r-2 border-[#00FF85] shadow-lg pl-6">
             <li> <a @click="() => { closeMenu(); scrollToSection('aboutMe'); }"
                     class="transition-colors hover:text-[#00FF85] hover:cursor-pointer">
                     Over mij

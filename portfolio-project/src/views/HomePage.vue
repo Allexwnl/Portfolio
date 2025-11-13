@@ -59,7 +59,7 @@ const scrollToSection = (id) => {
     </div>
     <TechStack />
     <Top3Blogs />
-    <h2 class="flex justify-center text-2xl mt-[250px] text-center">Bekijk mijn projecten</h2>
+    <h2 class="flex justify-center mt-[250px] text-center">Bekijk mijn projecten</h2>
     <section id="projects" class="--projectsSection">
 
         <ProJects />
