@@ -21,16 +21,12 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, from, savedPosition) {
-    // Als je teruggaat (Back/Forward), gebruik opgeslagen scrollpositie
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      // Anders, altijd naar boven scrollen
-      return { top: 0 }
-    }
+  scrollBehavior() {
+    // Altijd naar boven scrollen bij navigatie
+    return { top: 0 }
   }
 })
+
 
 router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.meta.requiresAuth
