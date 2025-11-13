@@ -1,88 +1,91 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+CU:wght@100..400&display=swap');
+
+@layer components {
+    body {
+        @apply bg-gray-300 m-0 h-full;
+    }
+
+    .--navbar {
+        @apply max-[1695px]:hidden fixed top-0 w-full backdrop-blur-[8px] shadow-md p-6 flex flex-row justify-between items-center border-b-3 border-[#00FF85] z-100;
+    }
+
+    h1 {
+        @apply text-[90px] font-bold max-[768px]:text-[40px] max-[768px]:ml-4;
+    }
+
+    h2 {
+        @apply text-[50px];
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+
+    h5 {
+        @apply text-lg;
+    }
+
+    h6 {
+        @apply text-base;
+    }
+
+    p {
+        @apply text-[25px] max-[768px]:text-[18px] max-[768px]:ml-4;
+    }
+
+    label {
+        @apply text-black mt-2 flex justify-center;
+    }
+
+    input {
+        @apply text-black bg-white border-[#00FF85] border-2 p-4 w-full rounded-[100px];
+    }
+
+    textarea {
+        @apply text-black
+    }
+
+    button {
+        @apply font-[20px] p-4 bg-white border-[#00FF85] hover:bg-[#00FF85] hover:border-white border-2 rounded-lg hover:text-white text-center transition duration-300 
+        cursor-pointer w-[300px];
+    }
 
 
-body {
-    @apply bg-gray-300 m-0 h-full;
-}
+    .--popUpBtn {
+        @apply rounded-[100px] w-[250px] flex justify-center items-center bg-white border-[#00FF85] border-2 hover:bg-[#00FF85] hover:border-white hover:text-white transition duration-300 ease-in-out p-2 text-black;
+    }
 
-.--navbar {
-    @apply max-[1695px]:hidden fixed top-0 w-full backdrop-blur-[8px] shadow-md p-6 flex flex-row justify-between items-center border-b-3 border-[#00FF85] z-100;
-}
+   .--popUpBtn:hover .bx-arrow-down-right-stroke {
+        @apply -rotate-90 transition-transform duration-300 ease-in-out;
+    }
 
-h1 {
-    @apply text-[90px] font-bold max-[768px]:text-[40px] max-[768px]:text-center;
-}
+    .--aBtn {
+        @apply rounded-[100px] max-[768px]:w-[200px] w-[250px] flex justify-center items-center bg-white border-[#00FF85] border-2 hover:bg-[#00FF85] hover:border-white hover:text-white transition duration-300 ease-in-out p-2 text-black gap-2;
+    }
 
-h2 {
-    @apply text-[50px];
-}
+    .--backBtn {
+        @apply w-[100px] ml-6
+    }
 
-h3 {
-    @apply text-2xl;
-}
+    .--lightDarkBtn {
+        @apply relative max-[768px]:w-[90px] w-[100px] h-10 rounded-full flex items-center transition-all duration-500;
+    }
 
-h4 {
-    @apply text-xl;
-}
+    .--sunAndMoon {
+        @apply absolute w-8 h-8 rounded-full shadow-md transform transition-all duration-500 flex items-center justify-center
+    }
 
-h5 {
-    @apply text-lg;
-}
-
-h6 {
-    @apply text-base;
-}
-
-p {
-    @apply text-[25px] max-[768px]:text-[18px] max-[768px]:text-center;
-}
-
-label {
-    @apply text-black mt-2 flex justify-center;
-}
-
-input {
-    @apply text-black bg-white border-[#00FF85] border-2 p-4 w-full rounded-[100px];
-}
-
-textarea {
-    @apply text-black
-}
-
-button {
-    @apply font-[20px] p-4 bg-white border-[#00FF85] hover:bg-[#00FF85] hover:border-white border-2 rounded-lg hover:text-white text-center transition duration-300 cursor-pointer w-[300px];
-}
-
-.--popUpBtn {
-    @apply rounded-[100px] w-[250px] flex justify-center items-center bg-white border-[#00FF85] border-2 hover:bg-[#00FF85] hover:border-white hover:text-white
-    transition duration-300 ease-in-out p-2 text-black;
-}
-
-.--popUpBtn:hover .bx-arrow-down-right-stroke {
-    @apply -rotate-90 transition-transform duration-300 ease-in-out;
-}
-
-.--aBtn {
-    @apply rounded-[100px] w-[250px] flex justify-center items-center bg-white border-[#00FF85] border-2 hover:bg-[#00FF85] hover:border-white hover:text-white
-    transition duration-300 ease-in-out p-2 text-black gap-2;
-}
-
-.--backBtn {
-    @apply w-[100px] ml-6 
-}
-
-.--lightDarkBtn {
-    @apply relative w-[100px] h-10 rounded-full flex items-center transition-all duration-500;
-}
-
-.--sunAndMoon {
-    @apply absolute w-8 h-8 rounded-full shadow-md transform transition-all duration-500 flex items-center justify-center
-}
+    .--projectCardBtn {
+       @apply max-[768px]:w-[200px]
+    }
 
 a {
     @apply hover:text-[#00FF85]
-} 
+}
 
 .--dangerA {
     @apply cursor-pointer hover:text-red-600
@@ -140,4 +143,6 @@ a {
 
 .dark .--footer {
     @apply bg-gray-800;
+}
+
 }

@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer components {
+    .--blogInfoContainer {
+        @apply flex flex-col justify-center ml-[30px] w-[60%] gap-4 mb-8
+    }
+    
+    .prose ul {
+        @apply ml-4
+    }
+    
+    .--imgShow {
+        @apply border-6 border-[#00FF65] w-[400px] mb-4 max-[500px]:w-[300px] rounded-lg mb-10 mt-10
+    }
+
+    .--blogShowTitle {
+        @apply min-[768px]:text-[50px]
+    }
+
+
+}

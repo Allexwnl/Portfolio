@@ -56,9 +56,15 @@
       </div>
       <h3>Afbeeldingen<i class='bxr bx-arrow-down-stroke animate-bounce'></i> </h3>
       <div v-if="filteredImages.length" class="space-y-6 mt-10">
-        <div v-for="(img, i) in filteredImages" :key="img" class="w-full">
+        <div v-for="(img, i) in filteredImages" :key="img" class="w-full relative">
           <img :src="img" class="w-full h-[300px] rounded-[10px] object-cover cursor-pointer" alt="project afbeelding"
             @click="; currentImage = i; isFullscreen = true" />
+
+          <button @click.stop="; currentImage = i; isFullscreen = true"
+            class="--fulscreenBtn"
+            title="Bekijk fullscreen">
+            ⤢
+          </button>
         </div>
       </div>
     </div>

@@ -8,6 +8,8 @@ import './assets/css/projectShow.css'
 import './assets/css/mobileCss.css'
 import './assets/css/techStack.css'
 import './assets/css/blogs.css'
+import './assets/css/blogShow.css'
+import './assets/css/contact.css'
 import router from './router';
 
 createApp(App).use(router).mount('#app');

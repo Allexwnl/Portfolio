@@ -2,14 +2,18 @@
   <NavBar />
   <MobileNavbar />
   <div class="pt-[150px]">
-  <button class="--backBtn" @click="$router.back()">← Terug</button>
-    <div v-if="blog">
-      <img v-if="blog.front_image" :src="blog.front_image" class="w-full rounded-lg mb-4" />
-      <h1 class="text-3xl font-bold mb-2">{{ blog.title }}</h1>
-      <p class="text-gray-500 text-sm mb-4">{{ blog.date_from }} → {{ blog.date_to }}</p>
-      <div v-html="renderMarkdown(blog.description)" class="prose"></div>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span v-for="tag in blog.tags" :key="tag" class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
+    <button class="--backBtn" @click="$router.back()">← Terug</button>
+    <div class="w-[80%]flex justify-center" v-if="blog">
+      <div class="w-[90%] flex justify-end">
+        <img v-if="blog.front_image" :src="blog.front_image" class="--imgShow" />
+      </div>
+      <div class="--blogInfoContainer">
+        <h1 class="--blogShowTitle">{{ blog.title }}</h1>
+        <p class="text-gray-500 text-sm mb-4">{{ blog.date_from }} → {{ blog.date_to }}</p>
+        <div v-html="renderMarkdown(blog.description)" class="prose"></div>
+      </div>
+      <div class="mt-4 flex flex-wrap justify-center gap-2">
+        <span v-for="tag in blog.tags" :key="tag" class="--blogTag">
           #{{ tag }}
         </span>
       </div>
@@ -18,6 +22,7 @@
       <p>Loading...</p>
     </div>
   </div>
+  <FooTer />
 </template>
 
 <script setup>
@@ -26,6 +31,7 @@ import { marked } from 'marked'
 import { supabase } from '../supabase/supabase.js'
 import { useRoute } from 'vue-router'
 import NavBar from '../components/NavBar.vue'
+import FooTer from '../components/FooTer.vue'
 import MobileNavbar from '../components/MobileNavbar.vue'
 
 const route = useRoute()

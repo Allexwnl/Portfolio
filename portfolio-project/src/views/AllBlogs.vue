@@ -28,6 +28,7 @@
 
         </div>
     </div>
+    <FooTer />
 </template>
 
 <script setup>
@@ -35,6 +36,7 @@ import { ref, onMounted } from 'vue'
 import { supabase } from '../supabase/supabase.js'
 import NavBar from '../components/NavBar.vue'
 import MobileNavbar from '../components/MobileNavbar.vue'
+import FooTer from '../components/FooTer.vue'
 
 const posts = ref([])
 

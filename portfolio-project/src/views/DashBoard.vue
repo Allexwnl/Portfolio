@@ -157,6 +157,7 @@
         </form>
       </section>
     </div>
+    <FooTer />
   </template>
   
   <script setup>
@@ -165,6 +166,7 @@
   import { ref, onMounted } from 'vue'
   import draggable from 'vuedraggable'
   import { marked } from 'marked'
+import FooTer from '../components/FooTer.vue'
   
   // Cloudinary config
   const CLOUD_NAME = 'dlixm83gq'

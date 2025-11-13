@@ -50,7 +50,7 @@
     </nav>
     <transition name="slide-side">
         <ul v-if="isMenuOpen"
-            class="md:hidden fixed w-1/2 h-full flex flex-col gap-4 text-lg font-medium mt-[75px] backdrop-blur-sm border-r-2 border-[#00FF85] shadow-lg pl-6 z-50">
+            class="md:hidden fixed w-1/2 h-full flex flex-col gap-4 text-lg font-medium mt-[99px] backdrop-blur-sm border-r-2 border-[#00FF85] shadow-lg pl-6">
             <li><a href="/#aboutMe" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Over mij</a></li>
             <li><a href="/#projects" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Projects</a></li>
             <li><a href="/#contact" @click="closeMenu" class="hover:text-[#00FF85] transition-colors">Contact</a></li>

@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.--ContactContainer {
+    @apply flex flex-col justify-center items-center text-center mt-20 mb-20 gap-6 w-[600px] border-10 border-[#00FF85] rounded-lg p-6 max-[650px]:w-[90%];
+}

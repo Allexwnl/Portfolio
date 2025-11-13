@@ -7,9 +7,9 @@
             <div
                 class="--projectCardInfo">
                 <div class="--projectCardInfoContainer">
-                    <h3 class="--projectTitle">{{ project.title }}</h3>
+                    <h3 class="mb-6 text-center">{{ project.title }}</h3>
                     <div class="w-full flex justify-center">
-                        <button class="mb-6 w-full --projectCardBtn" @click="goToProject(project.id)">Bekijk
+                        <button class="mb-6 --projectCardBtn" @click="goToProject(project.id)">Bekijk
                             project</button>
                     </div>
                 </div>

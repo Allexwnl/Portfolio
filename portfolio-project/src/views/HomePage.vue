@@ -5,6 +5,7 @@ import FooTer from '../components/FooTer.vue';
 import ProJects from '../components/ProJects.vue';
 import TechStack from '../components/TechStack.vue';
 import Top3Blogs from '../components/Top3Blogs.vue';
+import ConTact from '../components/ConTact.vue';
 
 const scrollToSection = (id) => {
     const el = document.getElementById(id)
@@ -35,11 +36,17 @@ const scrollToSection = (id) => {
     <div class="--mainContainer" id="aboutMe">
         <div class="--textContainer">
             <h1>Alexander Zoet</h1>
-            <p>Ik ben Alexander Zoet, een enthousiaste front-end developer die graag nieuwe technieken ontdekt. Mijn
-                specialiteit is het ontwerpen van gebruiksvriendelijke websites met moderne tools zoals HTML/CSS,
-                JavaScript en
-                Tailwind. Momenteel studeer ik aan de BIT Academy en ben ik bezig mijn kennis van JavaScript verder te
-                verdiepen.
+            <p>Mijn​‍​‌‍​‍‌ naam is Alexander Zoet en ik ben een enthousiaste front-end developer die graag met moderne
+                technieken mooie en gebruiksvriendelijke webapplicaties bouwt. Met HTML, CSS, JavaScript (ES6+) en
+                Tailwind CSS maak ik mooie, goed gestructureerde webpagina`s die er goed uit zien en technisch kloppen.
+
+                Ik werk graag zonder externe libraries, omdat ik de onderliggende logica van mijn code zo goed mogelijk
+                wil begrijpen. Op deze manier ontwikkel ik eigen, herbruikbare componenten en dashboards die precies
+                doen wat jij wil.
+
+                Op dit moment ben ik me aan het verdiepen in Laravel (PHP) en SQL, zodat ik meer kennis heb van de
+                volledige webstack. Ik richt me op kwaliteit, structuur en efficiëntie. Iedere code regel moet iets
+                ​‍​‌‍​‍‌opleveren.
             </p>
             <div class="mt-5 gap-8 flex flex-wrap max-[768px]:justify-center">
                 <button @click="scrollToSection('projects')">Bekijk Projecten</button>
@@ -58,6 +65,6 @@ const scrollToSection = (id) => {
         <ProJects />
 
     </section>
-
+    <ConTact id="contact" />
     <FooTer />
 </template>

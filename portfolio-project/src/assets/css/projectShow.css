@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
 .--projectDetails {
-  @apply p-6 flex flex-col justify-center items-center flex-wrap mb-20 gap-6 max-[1695px]:justify-center max-[1695px]:text-center;
+  @apply p-6 flex flex-row max-[768px]:flex-col justify-center items-center flex-wrap mb-20 gap-6 max-[1695px]:justify-center max-[1695px]:text-center;
 }
 
 .--projectInfo {
-  @apply flex flex-col gap-4 bg-gray-900 border-2 border-[#00FF85] rounded-lg p-2;
+  @apply flex flex-col gap-4 rounded-lg p-2 w-1/2;
+}
+
+.dark .--projectInfo {
+  @apply max-[768px]:bg-gray-900 max-[768px]:border-2 border-[#00FF85]
 }
 
 .--imageCarousel {
-  @apply relative flex justify-center items-center w-[850px] max-[1000px]:w-[550px] max-[768px]:w-[300px] h-[550px] max-[1000px]:h-[350px] max-[768px]:h-[150px] border-10 border-[#00FF65] bg-gray-500 rounded-lg overflow-hidden;
+  @apply  w-1/2 relative flex justify-center items-center w-[850px] max-[1000px]:w-[550px] max-[768px]:w-[300px] h-[550px] max-[1000px]:h-[350px] max-[768px]:h-[150px] border-10 border-[#00FF65] bg-gray-500 rounded-lg overflow-hidden;
 }
 
 .--carouselImage {
