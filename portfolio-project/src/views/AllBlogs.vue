@@ -5,7 +5,7 @@
         <button class="--backBtn" @click="$router.back()">← Terug</button>
         <h2 class="text-center mb-4">Blogs</h2>
         <div class="--blogContainer">
-            <div v-for="post in posts" class="--blog">
+            <router-link v-for="post in posts" :key="post.id" :to="`/blogs/${post.id}`" class="--blog hover:text-white">
                 <div class="--blogImgContainer">
                     <img v-if="post.front_image" :src="post.front_image" alt="Front Image"
                         class="--blogImg" />
@@ -24,7 +24,7 @@
                         #{{ tag }}
                     </span>
                 </div>
-            </div>
+            </router-link>
 
         </div>
     </div>

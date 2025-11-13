@@ -2,7 +2,7 @@
     <div class="pt-[300px]">
         <h2 class="text-center mb-4">Laatste Blogs</h2>
         <div class="--blogContainer">
-            <div v-for="post in posts.slice(0, 3)" :key="post.id" class="--blog">
+            <router-link v-for="post in posts.slice(0, 3)" :key="post.id" :to="`/blogs/${post.id}`" class="--blog hover:text-white">
                 <div class="--blogImgContainer">
                     <img v-if="post.front_image" :src="post.front_image" alt="Front Image"
                         class="--blogImg" />
@@ -20,8 +20,7 @@
                         #{{ tag }}
                     </span>
                 </div>
-            </div>
-
+            </router-link>
         </div>
     </div>
     <div class="text-center mt-6">
