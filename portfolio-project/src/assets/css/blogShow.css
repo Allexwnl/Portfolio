@@ -2,7 +2,7 @@
 
 @layer components {
     .--blogInfoContainer {
-        @apply flex flex-col justify-center ml-[30px] w-[60%] gap-4 mb-8
+        @apply flex flex-col justify-center ml-[30px] w-[60%] max-[768px]:w-full max-[768px]:ml-0 gap-4 mb-8
     }
     
     .prose ul {
@@ -14,7 +14,7 @@
     }
 
     .--blogShowTitle {
-        @apply min-[768px]:text-[50px]
+        @apply min-[768px]:text-[50px] max-[768px]:text-[30px]
     }
 
 
