@@ -9,7 +9,7 @@
                 <h3 class="mb-2">pagina's</h3>
                 <ul>
                     <li class="font-bold"><a href="/">Home</a></li>
-                    <li class="font-bold">blog</li>
+                    <li class="font-bold"><a href="/blogs">blog</a></li>
                 </ul>
             </div>
             <div class="flex flex-row justify-center items-center">

@@ -2,7 +2,7 @@
     <div class="pt-[300px]">
         <h2 class="text-center mb-4">Laatste Blogs</h2>
         <div class="--blogContainer">
-            <router-link v-for="post in posts.slice(0, 3)" :key="post.id" :to="`/blogs/${post.id}`" class="--blog hover:text-white">
+            <router-link v-for="post in posts.slice(0, 3)" :key="post.id" :to="`/blogs/${post.id}`" class="--blog">
                 <div class="--blogImgContainer">
                     <img v-if="post.front_image" :src="post.front_image" alt="Front Image"
                         class="--blogImg" />

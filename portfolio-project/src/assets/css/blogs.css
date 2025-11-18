@@ -5,7 +5,11 @@
 }
 
 .--blog {
-    @apply flex flex-col p-4 border-[#00FF85] border-10 rounded-lg bg-white;
+    @apply flex flex-col p-4 border-[#00FF85] border-10 rounded-lg bg-white hover:text-black;
+}
+
+.dark .--blog {
+    @apply hover:text-white;
 }
 
 .--blogImgContainer {
